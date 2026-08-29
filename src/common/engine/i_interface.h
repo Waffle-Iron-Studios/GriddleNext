@@ -19,6 +19,7 @@
 #include "zstring.h"
 #include "intrect.h"
 #include "name.h"
+#include <version.h>
 
 struct event_t;
 class FRenderState;
@@ -99,7 +100,7 @@ struct FStartupSelectionInfo
 
 	// Settings
 	int DefaultStartFlags = 0;
-	bool DefaultQueryIWAD = true;
+	bool DefaultQueryIWAD  = QUERYIWADDEFAULT;
 	FString DefaultLanguage = "auto";
 	int DefaultBackend = 1;
 	bool DefaultFullscreen = true;

@@ -124,7 +124,8 @@ static FFlagDef ActorFlagDefs[]=
 	DEFINE_FLAG(MF, COUNTITEM, AActor, flags),
 	DEFINE_FLAG(MF, SKULLFLY, AActor, flags),
 	DEFINE_FLAG(MF, NOTDMATCH, AActor, flags),
-	DEFINE_FLAG(MF, SPAWNSOUNDSOURCE, AActor, flags),
+
+	DEFINE_FLAG(MF, AIMASSISTTARGET, AActor, flags),
 	DEFINE_FLAG(MF, FRIENDLY, AActor, flags),
 	DEFINE_FLAG(MF, NOLIFTDROP, AActor, flags),
 	DEFINE_FLAG(MF, STEALTH, AActor, flags),
@@ -341,6 +342,8 @@ static FFlagDef ActorFlagDefs[]=
 	DEFINE_PROTECTED_FLAG(MF9, ISPUFF, AActor, flags9), //[AA] was spawned by SpawnPuff
 	DEFINE_FLAG(MF9, FORCESECTORDAMAGE, AActor, flags9),
 	DEFINE_FLAG(MF9, NOAUTOOFFSKULLFLY, AActor, flags9),
+
+	DEFINE_FLAG(WIS, SPAWNSOUNDSOURCE, AActor, flagswis),
 
 	// Effect flags
 	DEFINE_FLAG(FX, VISIBILITYPULSE, AActor, effects),

@@ -62,7 +62,13 @@
 // SAVESIG should match SAVEVER.
 
 // extension for savegames
-#define SAVEGAME_EXT "zds"
+#if defined(GRIDDLE_SASHAKAMEN)
+#define SAVEGAME_EXT "skzds"
+#elif defined(GRIDDLE_RELENTLESSFRONTIER)
+#define SAVEGAME_EXT "rfzds"
+#else
+#define SAVEGAME_EXT "wizds"
+#endif
 
 // MINSAVEVER is the minimum level snapshot version that can be loaded.
 #define MINSAVEVER 4556
@@ -72,7 +78,7 @@
 #define SAVEVER 4560
 
 // This is so that derivates can use the same savegame versions without worrying about engine compatibility
-#define GAMESIG "UZDOOM"
+#define GAMESIG "GRIDDLE"
 
 // list of compatible ports, ex.:
 // #define ALLOWLOADIN "PORT1", "PORT2", "PORT3"
@@ -82,19 +88,41 @@
 	#define LOAD_GZDOOM_4142_SAVES 1
 #endif
 
-#define BASEWAD "uzdoom.pk3"
+#define BASEWAD "GRIDDLE.pk3"
 // Set OPTIONALWAD to "" (null) to disable searching for it
 #define OPTIONALWAD "game_support.pk3"
 #define GZDOOM 1
 #define VR3D_ENABLED
 
 // More stuff that needs to be different for derivatives.
-#define GAMENAME "UZDoom"
-#define WGAMENAME L"UZDoom"
-#define GAMENAMELOWERCASE "uzdoom"
-#define APPID "org.zdoom.UZDoom"
+
+#if defined(GRIDDLE_SASHAKAMEN)
+// Sasha Kamen
+#define GAMENAME "SashaKamen"
+#define WGAMENAME L"SashaKamen"
+#define GAMENAMELOWERCASE "sashakamen"
+#define APPID "com.waffleironstudios.SashaKamen"
+#define QUERYIWADDEFAULT false
+
+#elif defined(GRIDDLE_RELENTLESSFRONTIER)
+// Relentless Frontier
+#define GAMENAME "RelentlessFrontier"
+#define WGAMENAME L"RelentlessFrontier"
+#define GAMENAMELOWERCASE "relentlessfrontier"
+#define APPID "com.fissionogre.RelentlessFrontier"
 #define QUERYIWADDEFAULT true
-#define BUGS_URL "https://github.com/UZDoom/UZDoom/issues"
+
+#else
+// Generic (Default)
+#define GAMENAME "GRIDDLE"
+#define WGAMENAME L"GRIDDLE"
+#define GAMENAMELOWERCASE "GRIDDLE"
+#define APPID "com.waffleironstudios.GRIDDLE"
+#define QUERYIWADDEFAULT true
+
+#endif
+
+#define BUGS_URL "https://github.com/Waffle-Iron-Studios/GRIDDLE"
 
 #define UPDATER_URL "https://zdoom.org/uzdoom-updates.php?r={}&f={}"
 #define UPDATER_URL_BACKUP "https://github.com/UZDoom/UZDoom/releases/{}/{}/{}"
@@ -108,7 +136,7 @@
 #define GAME_DIR "config/settings/" GAMENAME
 #endif
 
-#define DEFAULT_DISCORD_APP_ID "1428620310302691349"
+#define DEFAULT_DISCORD_APP_ID ""
 
 const int SAVEPICWIDTH = 216;
 const int SAVEPICHEIGHT = 162;

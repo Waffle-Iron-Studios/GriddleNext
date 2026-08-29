@@ -27,7 +27,7 @@ if( APPLE )
 		option( OSX_COCOA_BACKEND "Use native Cocoa backend instead of SDL" ON )
 endif()
 
-option( ZDOOM_ENABLE_SWR "Enable software renderer" ON )
+option( ZDOOM_ENABLE_SWR "Enable software renderer" OFF )
 if( NOT ZDOOM_ENABLE_SWR )
 	add_definitions( -DNO_SWRENDERER )
 endif()
@@ -856,6 +856,7 @@ set (PCH_SOURCES
 	gamedata/p_terrain.cpp
 	gamedata/statistics.cpp
 	gamedata/teaminfo.cpp
+	playsim/aim_assist.cpp
 	playsim/mapthinkers/a_decalfx.cpp
 	playsim/mapthinkers/a_doors.cpp
 	playsim/mapthinkers/a_lightning.cpp
@@ -870,6 +871,7 @@ set (PCH_SOURCES
 	playsim/mapthinkers/a_thruster.cpp
 	playsim/mapthinkers/a_scroll.cpp
 	playsim/mapthinkers/dsectoreffect.cpp
+	playsim/aim_assist.cpp
 	playsim/a_pickups.cpp
 	playsim/a_action.cpp
 	playsim/a_corona.cpp
@@ -1310,6 +1312,15 @@ if (ENABLE_IWYU)
 	else()
 		message(STATUS "IWYU not found. Diagnostics disabled")
 	endif()
+endif()
+
+
+if( GRIDDLE_SASHAKAMEN )
+	target_compile_definitions(zdoom PRIVATE GRIDDLE_SASHAKAMEN=1)
+endif()
+
+if( GRIDDLE_RELENTLESSFRONTIER )
+	target_compile_definitions(zdoom PRIVATE GRIDDLE_RELENTLESSFRONTIER=1)
 endif()
 
 if(BUILD_FLATPAK)

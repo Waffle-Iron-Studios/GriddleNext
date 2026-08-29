@@ -76,7 +76,7 @@ LauncherWindow::LauncherWindow(FStartupSelectionInfo& info, struct WindowParams 
 	PlayGame = new PlayGamePage(this, info);
 	Settings = new SettingsPage(this, info);
 	Network = new NetworkPage(this, info);
-	About = new AboutPage(this, info);
+	// About = new AboutPage(this, info);
 
 #ifdef HAS_UPDATER
 	if(IsCurlLoaded())
@@ -96,7 +96,6 @@ LauncherWindow::LauncherWindow(FStartupSelectionInfo& info, struct WindowParams 
 	Pages->AddTab(PlayGame, "Play");
 	Pages->AddTab(Settings, "Settings");
 	Pages->AddTab(Network, "Multiplayer");
-	Pages->AddTab(About, "About");
 
 	Network->InitializeTabs(info);
 
@@ -182,11 +181,9 @@ void LauncherWindow::UpdateLanguage()
 	Pages->SetTabText(PlayGame, GStrings.GetString("PICKER_TAB_PLAY"));
 	Pages->SetTabText(Settings, GStrings.GetString("OPTMNU_TITLE"));
 	Pages->SetTabText(Network, GStrings.GetString("PICKER_TAB_MULTI"));
-	Pages->SetTabText(About, GStrings.GetString("PICKER_TAB_ABOUT"));
 	PlayGame->UpdateLanguage();
 	Settings->UpdateLanguage();
 	Network->UpdateLanguage();
-	About->UpdateLanguage();
 	if (Release)
 	{
 		Pages->SetTabText(Release, GStrings.GetString("PICKER_TAB_RELEASE"));

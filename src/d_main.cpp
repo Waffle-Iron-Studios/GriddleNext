@@ -1820,6 +1820,25 @@ CCMD (endgame)
 	}
 }
 
+//====
+// ======================================================================
+//
+// CMD_endgame2
+//
+// [SW] Quit the current game and go to titleloop
+//
+//==========================================================================
+
+CCMD(endgame2)
+{
+	if (!netgame)
+	{
+		gameaction   = ga_titleloop;
+		demosequence = -1;
+		G_CheckDemoStatus();
+	}
+}
+
 //==========================================================================
 //
 // ParseCVarInfo

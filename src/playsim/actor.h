@@ -154,7 +154,7 @@ enum ActorFlag
 	MF_SKULLFLY			= 0x01000000,	// skull in flight
 	MF_NOTDMATCH		= 0x02000000,	// don't spawn in death match (key cards)
 
-	MF_SPAWNSOUNDSOURCE	= 0x04000000,	// Plays missile's see sound at spawning object.
+	MF_AIMASSISTTARGET  = 0x04000000,   // This actor is a valid target for the aim assist
 	MF_FRIENDLY			= 0x08000000,	// [RH] Friendly monsters for Strife (and MBF)
 	MF_UNMORPHED		= 0x10000000,	// [RH] Actor is the unmorphed version of something else
 	MF_NOLIFTDROP		= 0x20000000,	// [RH] Used with MF_NOGRAVITY to avoid dropping with lifts
@@ -441,6 +441,12 @@ enum ActorFlag9
 	MF9_NOAUTOOFFSKULLFLY		= 0x00000100,	// Don't automatically disable MF_SKULLFLY if velocity is 0.
 };
 
+// --- mobj.flags9 ---
+enum ActorFlagWIS
+{
+	WIS_SPAWNSOUNDSOURCE = 0x00000200, // Plays missile's see sound at spawning object. -- ORIGINALLY MF_SPAWNSOUNDSOURCE
+};
+
 // --- mobj.renderflags ---
 enum ActorRenderFlag
 {
@@ -611,6 +617,7 @@ typedef TFlags<ActorFlag6> ActorFlags6;
 typedef TFlags<ActorFlag7> ActorFlags7;
 typedef TFlags<ActorFlag8> ActorFlags8;
 typedef TFlags<ActorFlag9> ActorFlags9;
+typedef TFlags<ActorFlagWIS> ActorFlagsWIS;
 typedef TFlags<ActorRenderFlag> ActorRenderFlags;
 typedef TFlags<ActorRenderFlag2> ActorRenderFlags2;
 typedef TFlags<ActorBounceFlag> ActorBounceFlags;
@@ -624,6 +631,7 @@ DEFINE_TFLAGS_OPERATORS (ActorFlags6)
 DEFINE_TFLAGS_OPERATORS (ActorFlags7)
 DEFINE_TFLAGS_OPERATORS (ActorFlags8)
 DEFINE_TFLAGS_OPERATORS (ActorFlags9)
+DEFINE_TFLAGS_OPERATORS (ActorFlagsWIS)
 DEFINE_TFLAGS_OPERATORS (ActorRenderFlags)
 DEFINE_TFLAGS_OPERATORS (ActorRenderFlags2)
 DEFINE_TFLAGS_OPERATORS (ActorBounceFlags)
@@ -1177,6 +1185,7 @@ public:
 	ActorFlags7		flags7;			// WHO WANTS TO BET ON 8!?
 	ActorFlags8		flags8;			// I see your 8, and raise you a bet for 9.
 	ActorFlags9		flags9;			// Happy ninth actor flag field GZDoom !
+	ActorFlagsWIS     flagswis;         // Happy ninth actor flag field GZDoom !
 	double			Floorclip;		// value to use for floor clipping
 	double			radius, Height;		// for movement checking
 

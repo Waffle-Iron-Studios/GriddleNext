@@ -1271,6 +1271,11 @@ xx(frictionfactor)
 xx(movefactor)
 
 xx(Corona)
+
+xx(AimAssistEnabled)
+xx(AimAssistStrength)
+xx(AimAssistPrecision)
+
 xx(BuiltinStateOffset)
 
 // These are used for the stringtable, and are probably of no use elsewhere

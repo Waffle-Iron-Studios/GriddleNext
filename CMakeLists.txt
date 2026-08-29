@@ -4,7 +4,7 @@ cmake_policy( SET CMP0067 NEW )
 cmake_policy( SET CMP0091 NEW )
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-project(UZDoom)
+project(Griddle)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -27,25 +27,11 @@ if(NOT FORCE_NO_LTO)
 	endif()
 endif()
 
-if(WIN32)
-	option( USE_UPDATER "enable auto-updater" OFF )
-endif()
+option( GRIDDLE_SASHAKAMEN "Is Sasha Kamen Executable" OFF )
+option( GRIDDLE_RELENTLESSFRONTIER "Is Relentless Frontier Executable" OFF )
 
-if(USE_UPDATER)
-	set( CURL_REQUIRED TRUE )
-
-	if (WIN32)
-		option( LOAD_CURL_AT_RUNTIME "load curl at runtime instead of linking" ON )
-
-		if (NOT MSVC)
-			# NOTE: not a big issue for now but will need to be fixed if we switch over to mingw as the
-			#       primary windows compiler (which we'll probably have to do eventually for C++26 support)
-			message( FATAL_ERROR "updater.exe currently only builds with msvc" )
-		endif()
-		add_executable( updater WIN32 src/win32/updater.c )
-	else()
-		message( FATAL_ERROR "Updater not available on this platform" )
-	endif()
+if (GRIDDLE_SASHAKAMEN AND GRIDDLE_RELENTLESSFRONTIER)
+	message (ERROR "pick one or the other or neither" )
 endif()
 
 find_package(Threads REQUIRED)
@@ -189,7 +175,9 @@ IF( NOT CMAKE_BUILD_TYPE )
 ENDIF()
 
 set( ZDOOM_OUTPUT_DIR ${CMAKE_BINARY_DIR} CACHE PATH "Directory where zdoom.pk3 and the executable will be created." )
-set( ZDOOM_EXE_NAME "uzdoom" CACHE FILEPATH "Name of the executable to create" )
+
+set( ZDOOM_EXE_NAME "griddle" CACHE FILEPATH "Name of the executable to create" )
+
 
 if(DEFINED CMAKE_RUNTIME_OUTPUT_DIRECTORY)
 	set(ZDOOM_RESOURCE_DIR "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
@@ -478,10 +466,6 @@ add_subdirectory( src )
 add_subdirectory( libraries/lzma )
 add_subdirectory( tools )
 add_subdirectory( wadsrc )
-add_subdirectory( wadsrc_bm )
-add_subdirectory( wadsrc_lights )
-add_subdirectory( wadsrc_extra )
-add_subdirectory( wadsrc_widepix )
 
 if( ZMUSIC_SYSTEM_INSTALL )
 	# Internal ZMusic library provides miniz target, miniz.h file in partuclar
