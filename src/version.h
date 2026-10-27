@@ -101,7 +101,7 @@
 #define GAMENAME "SashaKamen"
 #define WGAMENAME L"SashaKamen"
 #define GAMENAMELOWERCASE "sashakamen"
-#define APPID "com.waffleironstudios.SashaKamen"
+#define APPID "com.waffleironstudios.sashakamen"
 #define QUERYIWADDEFAULT false
 
 #elif defined(GRIDDLE_RELENTLESSFRONTIER)
@@ -109,15 +109,23 @@
 #define GAMENAME "RelentlessFrontier"
 #define WGAMENAME L"RelentlessFrontier"
 #define GAMENAMELOWERCASE "relentlessfrontier"
-#define APPID "com.fissionogre.RelentlessFrontier"
-#define QUERYIWADDEFAULT true
+#define APPID "com.fissionogre.relentlessfrontier"
+#define QUERYIWADDEFAULT false
+
+#elif defined(GRIDDLE_SACCARINE)
+// Relentless Frontier
+#define GAMENAME "Saccharine"
+#define WGAMENAME L"Saccharine"
+#define GAMENAMELOWERCASE "saccharine"
+#define APPID "com.waffleironstudios.saccharine"
+#define QUERYIWADDEFAULT false
 
 #else
 // Generic (Default)
 #define GAMENAME "GRIDDLE"
 #define WGAMENAME L"GRIDDLE"
 #define GAMENAMELOWERCASE "GRIDDLE"
-#define APPID "com.waffleironstudios.GRIDDLE"
+#define APPID "com.waffleironstudios.griddle"
 #define QUERYIWADDEFAULT true
 
 #endif

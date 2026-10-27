@@ -1319,6 +1319,10 @@ if( GRIDDLE_RELENTLESSFRONTIER )
 	target_compile_definitions(zdoom PRIVATE GRIDDLE_RELENTLESSFRONTIER=1)
 endif()
 
+if( GRIDDLE_SACCHARINE )
+	target_compile_definitions(zdoom PRIVATE GRIDDLE_SACCHARINE=1)
+endif()
+
 if(BUILD_FLATPAK)
 	target_compile_definitions(zdoom PRIVATE IS_FLATPAK=1)
 endif()

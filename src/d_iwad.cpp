@@ -829,7 +829,7 @@ int FIWadManager::IdentifyVersion (std::vector<FileSys::ResourceName>&wadfiles, 
 	bool showlauncher = Args->CheckParm(FArg_showlauncher);
 	bool alwaysshow = (queryiwad && !Args->CheckParm(FArg_iwad) && !foundprio) || showlauncher;
 
-	if (!havepicked && (alwaysshow || picks.Size() > 1))
+	if (!havepicked && (picks.Size() > 1))
 	{
 		TArray<WadStuff> wads;
 		for (auto & found : picks)

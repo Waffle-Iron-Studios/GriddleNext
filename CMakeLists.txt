@@ -32,10 +32,7 @@ endif()
 
 option( GRIDDLE_SASHAKAMEN "Is Sasha Kamen Executable" OFF )
 option( GRIDDLE_RELENTLESSFRONTIER "Is Relentless Frontier Executable" OFF )
-
-if (GRIDDLE_SASHAKAMEN AND GRIDDLE_RELENTLESSFRONTIER)
-	message (ERROR "pick one or the other or neither" )
-endif()
+option( GRIDDLE_SACCHARINE "Is Saccharine Executable" OFF )
 
 find_package(Threads REQUIRED)
 find_package(Python3 3.6 REQUIRED)
