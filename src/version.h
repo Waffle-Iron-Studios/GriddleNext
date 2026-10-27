@@ -112,7 +112,7 @@
 #define APPID "com.fissionogre.relentlessfrontier"
 #define QUERYIWADDEFAULT false
 
-#elif defined(GRIDDLE_SACCARINE)
+#elif defined(GRIDDLE_SACCHARINE)
 // Relentless Frontier
 #define GAMENAME "Saccharine"
 #define WGAMENAME L"Saccharine"
